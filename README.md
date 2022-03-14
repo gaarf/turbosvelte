@@ -2,15 +2,16 @@
 
 install dependencies from the root, with `yarn`
 
-[@repo/ui](./workspaces/ui/) = shared components 
+[@repo/ui](./workspaces/ui/) = shared components
 
 [@repo/web](./workspaces/web/) = sveltekit app
 
-## Essential commands
+## Repo-level commands
 
 - `yarn run dev` runs everything
 - `yarn run check` typechecking
-- `yarn run test` unit + e2e testing
+- `yarn run test` run unit + e2e tests
+- `yarn run jest --watch` watch unit tests
 - `yarn run build` 🤷
 
 ### Linting & Formatting
@@ -21,6 +22,6 @@ to process the whole repo:
 - `yarn run lint`
 - `yarn run format`
 
-### Generate an end-to-end test
+### Generate an End-to-End test
 
 - `yarn run playwright codegen`

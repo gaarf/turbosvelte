@@ -10,7 +10,7 @@
 		"build": "turbo run build",
 		"dev": "turbo run dev --parallel",
 		"test": "turbo run test",
-		"jest": "yarn workspace @repo/qa run test --watch",
+		"jest": "yarn workspace @repo/qa run jest",
 		"check": "turbo run check",
 		"lint": "turbo run lint",
 		"format": "prettier --ignore-path .gitignore --write .",
