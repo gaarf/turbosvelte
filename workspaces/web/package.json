@@ -1,0 +1,28 @@
+{
+	"name": "@repo/web",
+	"license": "UNLICENSED",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"package": "svelte-kit package",
+		"preview": "svelte-kit preview",
+		"prepare": "svelte-kit sync",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"lint": "eslint --ignore-path ../../.gitignore ."
+	},
+	"devDependencies": {
+		"@repo/ui": "*",
+		"tailwindcss": "*",
+		"autoprefixer": "*",
+		"postcss": "*",
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/kit": "next",
+		"svelte": "*",
+		"svelte-check": "*",
+		"svelte-preprocess": "*",
+		"tslib": "*",
+		"typescript": "*"
+	},
+	"type": "module"
+}
