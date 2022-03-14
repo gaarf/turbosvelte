@@ -7,7 +7,8 @@
 		"test": "jest && yarn run e2e",
 		"codegen": "playwright codegen",
 		"e2e": "playwright test",
-		"pree2e": "playwright install"
+		"pree2e": "playwright install",
+		"lint": "eslint --ignore-path ../../.gitignore ."
 	},
 	"dependencies": {
 		"@repo/ui": "*",
@@ -18,6 +19,7 @@
 		"@testing-library/jest-dom": "^5.16.2",
 		"@testing-library/svelte": "^3.0.3",
 		"@types/node": "*",
+		"eslint": "*",
 		"jest": "^27.5.1",
 		"svelte": "*",
 		"svelte-jester": "^2.3.2",
