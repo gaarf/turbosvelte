@@ -1,7 +1,8 @@
 {
 	"name": "@repo/web",
+	"version": "0.0.0",
 	"license": "UNLICENSED",
-	"version": "0.0.1",
+	"private": true,
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",

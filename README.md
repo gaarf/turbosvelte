@@ -1,21 +1,21 @@
 # turbo-svelte
 
-install dependencies from the root only, with `yarn`
+install dependencies from the root, with `yarn`
 
-## Commands
+## Essential commands
 
-- `yarn run dev` runs everything
-- `yarn run check` type checks
-
-## TODO
-
+- `yarn run dev`
 - `yarn run test`
 - `yarn run build`
 
-## Linting & Formatting
+### Linting & Formatting
 
 runs automatically at commit time.
-to lint or format the whole repo:
+to process the whole repo:
 
 - `yarn run lint`
 - `yarn run format`
+
+### Generate an end-to-end test
+
+- `yarn run playwright codegen`

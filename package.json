@@ -1,5 +1,5 @@
 {
-	"name": "turbo-svelte",
+	"name": "turbosvelte",
 	"version": "0.0.0",
 	"license": "UNLICENSED",
 	"private": true,
@@ -11,7 +11,6 @@
 		"dev": "turbo run dev --parallel",
 		"test": "turbo run test",
 		"jest": "yarn workspace @repo/qa run test --watch",
-		"e2e": "yarn workspace @repo/qa run e2e --headed",
 		"check": "turbo run check",
 		"lint": "turbo run lint",
 		"format": "prettier --ignore-path .gitignore --write .",
