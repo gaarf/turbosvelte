@@ -6,4 +6,5 @@ declare class Mnemonic {
 	toMnemonic(b: number[]): string;
 }
 
+export function generateMnemonic(): string;
 export default Mnemonic;

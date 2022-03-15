@@ -1,6 +1,7 @@
 import svelte from 'rollup-plugin-svelte';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
+import alias from '@rollup/plugin-alias';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
@@ -53,6 +54,12 @@ export default {
 		// a separate file - better for performance
 		postcss({ extract: true }),
 
+		alias({
+			entries: [
+				{ find: /^\$utils\/(.*)$/, replacement: 'src/utils/$1' },
+				{ find: /^\$components\/(.*)$/, replacement: 'src/components/$1' }
+			]
+		}),
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
 		// some cases you'll need additional configuration -
