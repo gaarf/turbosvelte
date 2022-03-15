@@ -26,8 +26,6 @@
  * https://github.com/bitwiseshiftleft/sjcl
  */
 
-/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
 import sjcl from 'sjcl';
 import english from './wordlist_english';
 
