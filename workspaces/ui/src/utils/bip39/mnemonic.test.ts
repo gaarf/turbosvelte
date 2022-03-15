@@ -111,7 +111,7 @@ describe('Mnemonic', () => {
 
 	// Test handling multiple consecutive spaces
 	// See https://github.com/iancoleman/bip39/issues/19
-	xit('test multiple spaces', function () {
+	it('test multiple spaces', function () {
 		const mnemo = new Mnemonic('english');
 		const seed = mnemo.toSeed('urge cat  bid');
 		expect(seed).toEqual(

@@ -26,7 +26,7 @@
  * https://github.com/bitwiseshiftleft/sjcl
  */
 
-import sjcl from 'sjcl';
+import sjcl from './sjcl.js';
 import english from './wordlist_english';
 
 const WORDLISTS = { english };
@@ -35,22 +35,20 @@ export function generateMnemonic() {
 	return new Mnemonic().generate();
 }
 
-class HmacSHA512 {
+class hmacSHA512 {
 	constructor(key) {
-		this.hasher = new sjcl.misc.hmac(key, sjcl.hash.sha512);
-	}
-	encrypt(...args) {
-		return this.hasher.encrypt(...args);
+		var hasher = new sjcl.misc.hmac(key, sjcl.hash.sha512);
+		this.encrypt = function () {
+			return hasher.encrypt.apply(hasher, arguments);
+		};
 	}
 }
 
-const PBKDF2_ROUNDS = 2048;
-const RADIX = 2048;
+var PBKDF2_ROUNDS = 2048;
+var RADIX = 2048;
 
-export default class Mnemonic {
+class Mnemonic {
 	constructor(language = 'english') {
-		this.language = language;
-
 		const wordlist = WORDLISTS[language];
 
 		if (wordlist.length != RADIX) {
@@ -63,10 +61,12 @@ export default class Mnemonic {
 			);
 		}
 
+		this.language = language;
 		this.wordlist = wordlist;
 	}
 
-	generate(strength = 128) {
+	generate(strength) {
+		strength = strength || 128;
 		var r = strength % 32;
 		if (r > 0) {
 			throw 'Strength should be divisible by 32, but it is not (' + r + ').';
@@ -143,7 +143,7 @@ export default class Mnemonic {
 		passphrase = 'mnemonic' + passphrase;
 		var mnemonicBits = sjcl.codec.utf8String.toBits(mnemonicNormalized);
 		var passphraseBits = sjcl.codec.utf8String.toBits(passphrase);
-		var result = sjcl.misc.pbkdf2(mnemonicBits, passphraseBits, PBKDF2_ROUNDS, 512, HmacSHA512);
+		var result = sjcl.misc.pbkdf2(mnemonicBits, passphraseBits, PBKDF2_ROUNDS, 512, hmacSHA512);
 		var hashHex = sjcl.codec.hex.fromBits(result);
 		return hashHex;
 	}
@@ -211,10 +211,13 @@ function binaryStringToWordArray(binary) {
 	return a;
 }
 
-// Pad a numeric string on the left with zero digits until the given width
-// is reached.
-// Note this differs to the python implementation because it does not
-// handle numbers starting with a sign.
 function zfill(source, length) {
-	return String(source).padStart(length, '0');
+	// return String(source).padStart(length, '0');
+	source = source.toString();
+	while (source.length < length) {
+		source = '0' + source;
+	}
+	return source;
 }
+
+export default Mnemonic;
