@@ -1,7 +1,7 @@
 import type { LibraryItem } from './types';
 import { mkItem } from './types';
 
-import { Button } from '../components/index';
+import { Button, SeedGenerator } from '../components/index';
 
 const items: LibraryItem[] = [
 	mkItem(Button, {
@@ -14,7 +14,9 @@ const items: LibraryItem[] = [
 		disabled: {
 			props: { disabled: true }
 		}
-	})
+	}),
+
+	mkItem(SeedGenerator)
 ];
 
 export default items;

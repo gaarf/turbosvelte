@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from '$components';
+	import Button from '$components/Button';
 </script>
 
 <section class="p-10 text-center">

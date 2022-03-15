@@ -15,12 +15,18 @@ export type LibraryItem<T = Props> = [Component<T>, Required<Variant<T>>[]];
 
 export function mkItem<T>(
 	Klass: Component<T>,
-	varDef: Record<string, Omit<Variant<T>, 'name'>>
+	varDef: Record<string, Omit<Variant<T>, 'name'>> = {}
 ): LibraryItem<T> {
 	let defaultVariant: Variant<T> = {};
 	const variants: Required<Variant<T>>[] = [];
 
-	Object.entries(varDef).forEach(([name, variant], index) => {
+	const entries = Object.entries(varDef);
+
+	if (!entries.length) {
+		entries.push(['default', {}]);
+	}
+
+	entries.forEach(([name, variant], index) => {
 		if (!index && ['_', 'default'].includes(name)) {
 			defaultVariant = variant;
 			if (name === '_') {
