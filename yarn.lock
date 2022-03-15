@@ -1728,11 +1728,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/sjcl@^1.0.30":
-  version "1.0.30"
-  resolved "https://registry.yarnpkg.com/@types/sjcl/-/sjcl-1.0.30.tgz#c1db866622ef4da56af081fa2e258d76fb255b89"
-  integrity sha512-4ebBtj1rx3Kh3To5RnPua+U4JzVwH2MxUmHQvAlxWpzmfmupBRyyXAIEQceon+e5tW9aBeOApTYA6EXfBysRyQ==
-
 "@types/stack-utils@^2.0.0":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"
