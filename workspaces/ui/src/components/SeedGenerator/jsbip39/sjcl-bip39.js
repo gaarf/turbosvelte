@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
 // Select components from sjcl to suit the crypto operations bip39 requires.
 
 //// base.js

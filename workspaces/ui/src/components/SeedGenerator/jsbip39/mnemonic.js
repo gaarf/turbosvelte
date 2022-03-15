@@ -26,6 +26,8 @@
  * https://github.com/bitwiseshiftleft/sjcl
  */
 
+/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 import sjcl from './sjcl-bip39';
 import english from './wordlist_english';
 
@@ -39,7 +41,7 @@ function Mnemonic(language = 'english') {
 	var PBKDF2_ROUNDS = 2048;
 	var RADIX = 2048;
 
-	/* eslint-disable @typescript-eslint/no-this-alias */
+	/* eslint-disable-next-line @typescript-eslint/no-this-alias */
 	var self = this;
 	var wordlist = [];
 
