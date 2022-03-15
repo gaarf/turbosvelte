@@ -1,20 +1,16 @@
 <script lang="ts">
 	import Button from '$components/Button';
-	import generateMnemonic from '$utils/bip39/mnemonic';
+	import { generateMnemonic } from '$utils/bip39/mnemonic';
 
-	let seed: string;
-
-	function generateSeed() {
-		seed = generateMnemonic();
-	}
+	let mnemonic: string;
 </script>
 
 <div class="flex flex-col items-center border p-2">
 	<h1>seed generator</h1>
-	<Button on:click={generateSeed} />
+	<Button on:click={() => (mnemonic = generateMnemonic())} />
 	<p>
-		{#if seed}
-			<code>{seed}</code>
+		{#if mnemonic}
+			<code>{mnemonic}</code>
 		{/if}
 	</p>
 </div>

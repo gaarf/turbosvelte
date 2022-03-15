@@ -31,11 +31,8 @@ import english from './wordlist_english';
 
 const WORDLISTS = { english };
 
-export default function generateMnemonic(passphrase = '') {
-	const i = new Mnemonic();
-	const mnemonic = i.generate();
-	const seed = i.toSeed(mnemonic, passphrase);
-	return { mnemonic, seed };
+export function generateMnemonic() {
+	return new Mnemonic().generate();
 }
 
 class HmacSHA512 {
@@ -50,7 +47,7 @@ class HmacSHA512 {
 const PBKDF2_ROUNDS = 2048;
 const RADIX = 2048;
 
-class Mnemonic {
+export default class Mnemonic {
 	constructor(language = 'english') {
 		this.language = language;
 
