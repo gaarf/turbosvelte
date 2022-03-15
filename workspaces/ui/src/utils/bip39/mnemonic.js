@@ -31,8 +31,11 @@ import english from './wordlist_english';
 
 const WORDLISTS = { english };
 
-export default function generateMnemonic() {
-	return new Mnemonic().generate();
+export default function generateMnemonic(passphrase = '') {
+	const i = new Mnemonic();
+	const mnemonic = i.generate();
+	const seed = i.toSeed(mnemonic, passphrase);
+	return { mnemonic, seed };
 }
 
 class HmacSHA512 {
@@ -110,35 +113,7 @@ class Mnemonic {
 		return this.joinWords(result);
 	}
 
-	check(input) {
-		var mnemonic = this.splitWords(input);
-		if (mnemonic.length == 0 || mnemonic.length % 3 > 0) {
-			return false;
-		}
-		var idx = [];
-		for (var i = 0; i < mnemonic.length; i++) {
-			var word = mnemonic[i];
-			var wordIndex = this.wordlist.indexOf(word);
-			if (wordIndex == -1) {
-				return false;
-			}
-			var binaryIndex = zfill(wordIndex.toString(2), 11);
-			idx.push(binaryIndex);
-		}
-		var b = idx.join('');
-		var l = b.length;
-		var d = b.substring(0, (l / 33) * 32);
-		var h = b.substring(l - l / 33, l);
-		var nd = binaryStringToWordArray(d);
-		var ndHash = sjcl.hash.sha256.hash(nd);
-		var ndHex = sjcl.codec.hex.fromBits(ndHash);
-		var ndBstr = zfill(hexStringToBinaryString(ndHex), 256);
-		var nh = ndBstr.substring(0, l / 33);
-		return h == nh;
-	}
-
-	toSeed(mnemonic, passphrase) {
-		passphrase = passphrase || '';
+	toSeed(mnemonic, passphrase = '') {
 		mnemonic = this.joinWords(this.splitWords(mnemonic)); // removes duplicate blanks
 		var mnemonicNormalized = this.normalizeString(mnemonic);
 		passphrase = this.normalizeString(passphrase);
@@ -201,26 +176,10 @@ function hexStringToBinaryString(hexString) {
 	return binaryString;
 }
 
-function binaryStringToWordArray(binary) {
-	var aLen = binary.length / 32;
-	var a = [];
-	for (var i = 0; i < aLen; i++) {
-		var valueStr = binary.substring(0, 32);
-		var value = parseInt(valueStr, 2);
-		a.push(value);
-		binary = binary.slice(32);
-	}
-	return a;
-}
-
 // Pad a numeric string on the left with zero digits until the given width
 // is reached.
 // Note this differs to the python implementation because it does not
 // handle numbers starting with a sign.
 function zfill(source, length) {
-	source = source.toString();
-	while (source.length < length) {
-		source = '0' + source;
-	}
-	return source;
+	return String(source).padStart(length, '0');
 }
