@@ -15,10 +15,13 @@
 		"@repo/web": "*"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.17.7",
+		"@babel/preset-env": "^7.16.11",
 		"@playwright/test": "^1.19.2",
 		"@testing-library/jest-dom": "^5.16.2",
 		"@testing-library/svelte": "^3.0.3",
 		"@types/node": "*",
+		"babel-jest": "^27.5.1",
 		"eslint": "*",
 		"jest": "^27.5.1",
 		"svelte": "*",

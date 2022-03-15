@@ -32,6 +32,7 @@ const config: Config.InitialOptions = {
 				preprocess: true
 			}
 		],
+		'^.+\\.js$': 'babel-jest',
 		'^.+\\.ts$': 'ts-jest'
 	}
 };

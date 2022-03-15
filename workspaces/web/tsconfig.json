@@ -5,7 +5,7 @@
 		"paths": {
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
-			"$components": ["../ui/src/components"]
+			"$components/*": ["../ui/src/components/*"]
 		}
 	}
 }
