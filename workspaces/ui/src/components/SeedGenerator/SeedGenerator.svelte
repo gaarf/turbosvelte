@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Button } from '../index';
-	import generateMnemonic from './jsbip39/mnemonic';
+	import Button from '$components/Button';
+	import generateMnemonic from '$utils/jsbip39/mnemonic';
 
 	let seed: string;
 

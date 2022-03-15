@@ -1,7 +1,8 @@
 import type { LibraryItem } from './types';
 import { mkItem } from './types';
 
-import { Button, SeedGenerator } from '../components/index';
+import Button from '$components/Button';
+import SeedGenerator from '$components/SeedGenerator';
 
 const items: LibraryItem[] = [
 	mkItem(Button, {
