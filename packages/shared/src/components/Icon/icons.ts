@@ -1,7 +1,8 @@
-import { faFlag } from '@fortawesome/free-solid-svg-icons';
+import { faFlag, faUser } from '@fortawesome/free-solid-svg-icons';
 
 const iconDefs = {
-	flag: faFlag
+	flag: faFlag,
+	user: faUser
 };
 
 export type IconName = keyof typeof iconDefs;

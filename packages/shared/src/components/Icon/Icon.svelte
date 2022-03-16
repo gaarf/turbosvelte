@@ -12,4 +12,4 @@
 	export let name: IconName;
 </script>
 
-<Fa icon={iconDefs[name]} />
+<Fa icon={iconDefs[name]} {...$$restProps} />
