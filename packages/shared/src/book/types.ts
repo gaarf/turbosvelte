@@ -34,7 +34,7 @@ export function mkItem<T>(
 			}
 		}
 
-		const { props = {}, slot = '' } = variant;
+		const { props, slot = '' } = variant;
 
 		variants.push({
 			name,
