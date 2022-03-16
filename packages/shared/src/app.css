@@ -18,3 +18,7 @@ a[href] {
 a[href]:hover {
 	@apply underline;
 }
+
+body {
+	@apply bg-slate-50 text-black dark:bg-gray-900 dark:text-white;
+}

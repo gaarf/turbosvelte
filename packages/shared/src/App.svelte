@@ -31,7 +31,7 @@
 	}
 	nav {
 		@apply max-w-xs overflow-x-auto px-4 py-2;
-		@apply border-r;
+		@apply border-r dark:bg-orange-300;
 	}
 	section {
 		@apply flex-1 overflow-auto p-2;
