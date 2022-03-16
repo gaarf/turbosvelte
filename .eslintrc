@@ -6,7 +6,7 @@
 	"overrides": [
 		{ "files": ["*.svelte"], "processor": "svelte3/svelte3" },
 		{
-			"files": ["*.js"],
+			"files": ["*.js", "*.cjs"],
 			"rules": {
 				"@typescript-eslint/no-var-requires": ["off"]
 			}

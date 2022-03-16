@@ -36,7 +36,6 @@
 		"svelte-fa": "^2.4.0",
 		"svelte-preprocess": "*",
 		"tailwindcss": "^3.0.23",
-		"tailwindcss-global-dark": "^1.0.1",
 		"tslib": "*",
 		"typescript": "*"
 	}

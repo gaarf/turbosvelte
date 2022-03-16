@@ -31,7 +31,7 @@
 	}
 	nav {
 		@apply max-w-xs overflow-x-auto px-4 py-2;
-		@apply gdark:border-r-yellow-800 border-r;
+		@apply dark\:border-r-yellow-800 border-r;
 	}
 
 	section {
