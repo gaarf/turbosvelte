@@ -2,6 +2,7 @@ import type { LibraryItem } from './types';
 import { mkItem } from './types';
 
 import Button from '$components/Button';
+import { uiLibItem as iconsItem } from '$components/Icon';
 
 const items: LibraryItem[] = [
 	mkItem(Button, {
@@ -14,7 +15,8 @@ const items: LibraryItem[] = [
 		disabled: {
 			props: { disabled: true }
 		}
-	})
+	}),
+	iconsItem
 ];
 
 export default items;

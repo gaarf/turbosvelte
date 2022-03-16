@@ -16,6 +16,7 @@
 		"defaults"
 	],
 	"devDependencies": {
+		"@fortawesome/free-solid-svg-icons": "^6.1.0",
 		"@rollup/plugin-alias": "^3.1.9",
 		"@rollup/plugin-commonjs": "^21.0.2",
 		"@rollup/plugin-node-resolve": "^13.1.3",
@@ -31,6 +32,7 @@
 		"rollup-plugin-terser": "^7.0.0",
 		"svelte": "*",
 		"svelte-check": "*",
+		"svelte-fa": "^2.4.0",
 		"svelte-preprocess": "*",
 		"tailwindcss": "^3.0.23",
 		"tslib": "*",
