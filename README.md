@@ -2,9 +2,9 @@
 
 install dependencies from the root, with `yarn`
 
-[@repo/ui](./workspaces/ui/) = shared components
+[@repo/shared](./packages/shared/) = components, utils, tailwind config
 
-[@repo/web](./workspaces/web/) = sveltekit app
+[@repo/web](./packages/web/) = sveltekit app
 
 ## Repo-level commands
 

@@ -4,7 +4,7 @@
 	"license": "UNLICENSED",
 	"private": true,
 	"workspaces": [
-		"workspaces/*"
+		"packages/*"
 	],
 	"scripts": {
 		"build": "turbo run build",

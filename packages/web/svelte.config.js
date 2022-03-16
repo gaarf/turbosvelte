@@ -14,7 +14,7 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					$components: '@repo/ui/src/components'
+					$components: '@repo/shared/src/components'
 				}
 			}
 		}
