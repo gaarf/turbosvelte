@@ -11,7 +11,7 @@ const items: LibraryItem[] = [
 	mkItem(Input, {
 		default: { props: { value: 'content' } },
 		disabled: { props: { disabled: true } },
-		number: { props: { type: 'number', value: 2, min: 0 } }
+		number: { props: { type: 'number', value: '2', min: 0 } }
 	}),
 	mkItem(Button, {
 		default: {

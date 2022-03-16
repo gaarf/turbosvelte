@@ -6,6 +6,7 @@
 			"outputs": [".svelte-kit/output/**", "public/build/**"]
 		},
 		"lint": {
+			"cache": false,
 			"outputs": []
 		},
 		"check": {

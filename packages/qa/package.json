@@ -20,7 +20,6 @@
 		"@playwright/test": "^1.19.2",
 		"@testing-library/jest-dom": "^5.16.2",
 		"@testing-library/svelte": "^3.0.3",
-		"@types/node": "*",
 		"babel-jest": "^27.5.1",
 		"eslint": "*",
 		"jest": "^27.5.1",
@@ -29,7 +28,7 @@
 		"svelte-loader": "*",
 		"svelte-preprocess": "*",
 		"ts-jest": "^27.1.3",
-		"ts-node": "^10.7.0",
+		"ts-node": "*",
 		"typescript": "*"
 	}
 }

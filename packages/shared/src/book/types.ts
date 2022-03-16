@@ -5,7 +5,7 @@ export type Props = Record<string, unknown>;
 export type Variant<T = Props> = {
 	name?: string;
 	slot?: unknown;
-	props?: T;
+	props?: Partial<T> & Props;
 };
 
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
@@ -36,9 +36,11 @@ export function mkItem<T>(
 
 		const { props, slot = '' } = variant;
 
+		const variantProps = { ...defaultVariant.props, ...props } as Partial<T> & Props;
+
 		variants.push({
 			name,
-			props: { ...defaultVariant.props, ...props } as T,
+			props: variantProps,
 			slot: slot || defaultVariant.slot
 		});
 	});
