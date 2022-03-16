@@ -9,9 +9,9 @@ import Input from '$components/Input';
 const items: LibraryItem[] = [
 	mkItem(DarkToggle),
 	mkItem(Input, {
-		default: { props: { value: 'content' } },
-		disabled: { props: { disabled: true } },
-		number: { props: { type: 'number', value: '2', min: 0 } }
+		default: { props: { value: 'hello' } },
+		disabled: { props: { disabled: true, value: 'disabled' } },
+		number: { props: { type: 'number', value: 2, min: 0 } }
 	}),
 	mkItem(Button, {
 		default: {

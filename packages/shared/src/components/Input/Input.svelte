@@ -1,13 +1,13 @@
 <!-- 
-  @component a clickable button
+  @component an input field
  -->
 <script lang="ts">
 	interface $$Props {
-		value: string;
+		value: string | number;
 		disabled?: boolean;
 	}
 
-	export let value = '';
+	export let value: string | number;
 	export let disabled = false;
 
 	$: addProps = { ...$$restProps, type: $$restProps.type || 'text' };

@@ -5,7 +5,7 @@ export type Props = Record<string, unknown>;
 export type Variant<T = Props> = {
 	name?: string;
 	slot?: unknown;
-	props?: Partial<T> & Props;
+	props?: T;
 };
 
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
@@ -15,7 +15,7 @@ export type LibraryItem<T = Props> = [Component<T>, Required<Variant<T>>[]];
 
 export function mkItem<T>(
 	Klass: Component<T>,
-	varDef: Record<string, Omit<Variant<T>, 'name'>> = {}
+	varDef: Record<string, Omit<Variant<T & Props>, 'name'>> = {}
 ): LibraryItem<T> {
 	let defaultVariant: Variant<T> = {};
 	const variants: Required<Variant<T>>[] = [];
@@ -36,11 +36,9 @@ export function mkItem<T>(
 
 		const { props, slot = '' } = variant;
 
-		const variantProps = { ...defaultVariant.props, ...props } as Partial<T> & Props;
-
 		variants.push({
 			name,
-			props: variantProps,
+			props: { ...defaultVariant.props, ...props } as T,
 			slot: slot || defaultVariant.slot
 		});
 	});
