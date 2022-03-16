@@ -4,7 +4,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import alias from '@rollup/plugin-alias';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
-import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 
@@ -20,7 +19,6 @@ function serve() {
 	return {
 		writeBundle() {
 			if (server) return;
-			/* eslint-disable-next-line @typescript-eslint/no-var-requires */
 			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
 				stdio: ['ignore', 'inherit', 'inherit'],
 				shell: true
@@ -42,9 +40,7 @@ export default {
 	},
 	plugins: [
 		svelte({
-			preprocess: sveltePreprocess({
-				sourceMap: !production
-			}),
+			preprocess: require('./svelte.config.js').createPreprocessors(!production),
 			compilerOptions: {
 				// enable run-time checks when not in production
 				dev: !production

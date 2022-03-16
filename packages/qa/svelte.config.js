@@ -1,8 +1,5 @@
-/* eslint-disable-next-line @typescript-eslint/no-var-requires */
-const sveltePreprocess = require('svelte-preprocess');
+const { createPreprocessors } = require('@repo/shared/svelte.config');
 
 module.exports = {
-	preprocess: sveltePreprocess({
-		// ...
-	})
+	preprocess: createPreprocessors()
 };
