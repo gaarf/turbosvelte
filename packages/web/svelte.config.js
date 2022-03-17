@@ -14,8 +14,12 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					$components: '@repo/shared/src/components'
+					$components: '@repo/shared/src/components',
+					$utils: '@repo/shared/src/utils'
 				}
+			},
+			optimizeDeps: {
+				exclude: ['@urql/svelte']
 			}
 		}
 	}
