@@ -4,11 +4,13 @@
 	"license": "UNLICENSED",
 	"private": true,
 	"workspaces": [
-		"workspaces/*"
+		"packages/*"
 	],
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev --parallel",
+		"dev:web": "yarn workspace @repo/web run dev",
+		"dev:shared": "yarn workspace @repo/shared run dev",
 		"test": "turbo run test",
 		"jest": "yarn workspace @repo/qa run jest",
 		"check": "turbo run check",
@@ -19,19 +21,21 @@
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^5.14.0",
 		"@typescript-eslint/parser": "^5.14.0",
+		"@types/node": "*",
 		"eslint": "^8.10.0",
 		"eslint-plugin-svelte3": "^3.4.1",
 		"husky": ">=6",
 		"lint-staged": ">=10",
 		"prettier": "^2.5.1",
-		"prettier-plugin-tailwindcss": "^0.1.8",
 		"prettier-plugin-svelte": "^2.5.0",
+		"prettier-plugin-tailwindcss": "^0.1.8",
 		"svelte": "^3.46.4",
 		"svelte-check": "^2.4.5",
 		"svelte-loader": "^3.1.2",
 		"svelte-preprocess": "^4.10.4",
-		"turbo": "latest",
 		"tslib": "^2.3.1",
+		"ts-node": "^10.7.0",
+		"turbo": "latest",
 		"typescript": "^4.6.2"
 	},
 	"engines": {
