@@ -5,7 +5,7 @@
 	interface $$Props {
 		small?: boolean;
 		disabled?: boolean;
-		type?: 'button' | 'submit';
+		type?: 'button' | 'submit' | 'reset';
 	}
 
 	export let small = false;
@@ -19,7 +19,7 @@
 
 <style lang="postcss">
 	button {
-		@apply rounded-lg bg-slate-600 p-1 text-white;
+		@apply rounded-lg bg-slate-600 px-4 py-2 text-white;
 	}
 
 	button:hover {
@@ -31,7 +31,7 @@
 	}
 
 	button.small {
-		@apply text-sm;
+		@apply p-1 text-xs;
 	}
 
 	button:disabled {

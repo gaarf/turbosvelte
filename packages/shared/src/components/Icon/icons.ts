@@ -1,6 +1,7 @@
-import { faFlag, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faFlag, faUser, faClose } from '@fortawesome/free-solid-svg-icons';
 
 const iconDefs = {
+	close: faClose,
 	flag: faFlag,
 	user: faUser
 };
