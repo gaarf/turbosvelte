@@ -1,18 +1,17 @@
 <script lang="ts">
+	import Button from '$components/Button';
+	import Input from '$components/Input';
 	import { gql, operationStore, query } from '$lib/gql';
 
-	const helloWorld = operationStore(
+	let pokemonName = 'voltorb';
+
+	const op = operationStore(
 		gql`
 			query ($pokemon: PokemonEnum!) {
 				getPokemon(pokemon: $pokemon) {
 					num
 					species
 					types
-					abilities {
-						first
-						second
-						hidden
-					}
 					baseStats {
 						hp
 						attack
@@ -21,29 +20,42 @@
 						specialdefense
 						speed
 					}
-					height
-					weight
 					flavorTexts {
 						game
 						flavor
 					}
 					sprite
-					bulbapediaPage
 				}
 			}
 		`,
-		{ pokemon: 'voltorb' }
+		{ pokemon: pokemonName }
 	);
 
-	query(helloWorld);
+	query(op);
+
+	function handleSubmit() {
+		$op.variables = { pokemon: pokemonName };
+	}
+
+	let pokemonData: Record<string, string>; // not really...
+	$: pokemonData = $op.data?.getPokemon || {};
 </script>
 
 <section class="flex flex-col p-2">
-	{#if $helloWorld.fetching}
+	<form class="mb-2" on:submit|preventDefault={handleSubmit}>
+		<Input bind:value={pokemonName} disabled={$op.fetching} />
+		<Button type="submit" disabled={$op.fetching}>Submit</Button>
+	</form>
+	{#if $op.fetching}
 		<p>Loading...</p>
-	{:else if $helloWorld.error}
-		<p>Oh no... {$helloWorld.error.message}</p>
+	{:else if $op.error}
+		<p>Oh no... {$op.error.message}</p>
 	{:else}
-		<pre>{JSON.stringify($helloWorld.data.getPokemon, null, 2)}</pre>
+		<div>
+			<img src={pokemonData.sprite} alt={pokemonData.species} />
+		</div>
+		<code class="overflow-x-hidden">
+			<pre>{JSON.stringify(pokemonData, null, 2)}</pre>
+		</code>
 	{/if}
 </section>

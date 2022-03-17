@@ -3,11 +3,11 @@
  -->
 <script lang="ts">
 	interface $$Props {
-		value: string | number;
+		value?: string | number;
 		disabled?: boolean;
 	}
 
-	export let value: string | number;
+	export let value: string | number = '';
 	export let disabled = false;
 
 	$: addProps = { ...$$restProps, type: $$restProps.type || 'text' };

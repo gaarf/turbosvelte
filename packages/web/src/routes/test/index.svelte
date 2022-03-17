@@ -10,6 +10,7 @@
 <section class="flex flex-col p-2">
 	<p>
 		<Button on:click={() => goto('/')}>Button from UI!</Button>
+		<a href="/test/gql">graphql</a>
 	</p>
 
 	<code>

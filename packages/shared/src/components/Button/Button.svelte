@@ -5,13 +5,15 @@
 	interface $$Props {
 		small?: boolean;
 		disabled?: boolean;
+		type?: 'button' | 'submit';
 	}
 
 	export let small = false;
 	export let disabled = false;
+	export let type = 'button';
 </script>
 
-<button class:small on:click {disabled}>
+<button class:small on:click {disabled} {type}>
 	<slot>Click Me</slot>
 </button>
 
