@@ -1,4 +1,4 @@
-import { mkItem } from 'src/book/types';
+import mkItem from 'src/book/mkItem';
 import Icon from './Icon.svelte';
 import iconDefs from './icons';
 

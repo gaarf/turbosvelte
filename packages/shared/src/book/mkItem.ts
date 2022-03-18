@@ -1,6 +1,6 @@
-import type { SvelteComponentTyped } from 'svelte';
+import type { Props, Component } from '$utils/types';
 
-export type Props = Record<string, unknown>;
+export { Props, Component };
 
 export type Variant<T = Props> = {
 	name?: string;
@@ -8,12 +8,9 @@ export type Variant<T = Props> = {
 	props?: T;
 };
 
-/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-export type Component<T = Props> = new (...args: any) => SvelteComponentTyped<T>;
-
 export type LibraryItem<T = Props> = [Component<T>, Required<Variant<T>>[]];
 
-export function mkItem<T>(
+export default function mkItem<T>(
 	Klass: Component<T>,
 	varDef: Record<string, Omit<Variant<T & Props>, 'name'>> = {}
 ): LibraryItem<T> {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Component, Props, Variant } from './types';
+	import type { Component, Props, Variant } from './mkItem';
 	import items from './uiLibItems';
 	import { onMount } from 'svelte';
 

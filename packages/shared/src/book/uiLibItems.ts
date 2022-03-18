@@ -1,16 +1,20 @@
-import type { LibraryItem } from './types';
-import { mkItem } from './types';
+import type { LibraryItem } from './mkItem';
+import mkItem from './mkItem';
 
-import Button from '$components/Button';
-import Dismissable from '$components/Dismissable';
 import DarkToggle from '$components/DarkToggle';
+import Button from '$components/Button';
 import { uiLibItem as iconsItem } from '$components/Icon';
 import Input from '$components/Input';
+import Toast from '$components/Toast';
+import Alert from '$components/Alert';
 
 const items: LibraryItem[] = [
 	mkItem(DarkToggle),
-	mkItem(Dismissable, {
-		default: { slot: 'Dismiss me' }
+	mkItem(Alert, {
+		default: { slot: 'This is an alert!' }
+	}),
+	mkItem(Toast, {
+		default: { slot: 'Dismissable toast' }
 	}),
 	mkItem(Input, {
 		default: { props: { value: 'hello' } },

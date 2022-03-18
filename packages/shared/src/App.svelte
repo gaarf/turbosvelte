@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BookIndex from './book/Index.svelte';
-	import type { Variant, Component } from './book/types';
+	import type { Variant, Component } from './book/mkItem';
 
 	let Klass: Component;
 	let variant: Variant;

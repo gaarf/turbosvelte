@@ -5,7 +5,7 @@ module.exports = {
 	darkMode: 'class',
 	plugins: [
 		plugin(({ addVariant, e }) => {
-			addVariant("dark\\", ({ container, separator }) => {
+			addVariant('dark\\', ({ container, separator }) => {
 				container.walkRules((rule) => {
 					const className = rule.selector.slice(1);
 					rule.selector = `:global(.dark) .${e(`dark\\${separator}${className}`)}`;
@@ -15,8 +15,6 @@ module.exports = {
 		require('@tailwindcss/forms')
 	],
 	theme: {
-		extend: {
-
-		}
+		extend: {}
 	}
 };
