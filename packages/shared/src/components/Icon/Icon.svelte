@@ -7,9 +7,12 @@
 
 	interface $$Props {
 		name: IconName;
+		label?: string;
 	}
-
 	export let name: IconName;
+	export let label = '';
 </script>
 
-<Fa icon={iconDefs[name]} {...$$restProps} />
+<span aria-label={label || name}>
+	<Fa icon={iconDefs[name]} {...$$restProps} />
+</span>
