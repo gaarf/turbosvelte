@@ -10,10 +10,12 @@
 	interface $$Props {
 		outside?: boolean;
 		noButton?: boolean;
+		self?: boolean;
 	}
 
 	export let outside = false;
 	export let noButton = false;
+	export let self = false;
 
 	interface $$Events {
 		dismissed: CustomEvent;
@@ -21,8 +23,13 @@
 
 	const dispatch = createEventDispatcher();
 
+	let visible = true;
+
 	function handleDismiss() {
 		dispatch('dismissed');
+		if (self) {
+			visible = false;
+		}
 	}
 
 	function handleClickOutside() {
@@ -32,11 +39,13 @@
 	}
 </script>
 
-<div class="flex" use:clickOutside={handleClickOutside}>
-	<slot />
-	{#if !noButton}
-		<div class="ml-2">
-			<Button small on:click={handleDismiss}><Icon name="close" /></Button>
-		</div>
-	{/if}
-</div>
+{#if visible}
+	<div class="flex" use:clickOutside={handleClickOutside}>
+		<slot />
+		{#if !noButton}
+			<div class="ml-2">
+				<Button small on:click={handleDismiss}><Icon name="close" /></Button>
+			</div>
+		{/if}
+	</div>
+{/if}

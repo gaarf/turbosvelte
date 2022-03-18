@@ -5,6 +5,7 @@
 	interface $$Props {
 		content?: string;
 	}
+
 	function handleDismissed() {
 		console.log('FIXME');
 	}
@@ -14,7 +15,7 @@
 
 <Alert>
 	<div class="border p-1">
-		<Dismissable on:dismissed={handleDismissed}>
+		<Dismissable on:dismissed={handleDismissed} self noButton outside>
 			<slot>{content}</slot>
 		</Dismissable>
 	</div>
