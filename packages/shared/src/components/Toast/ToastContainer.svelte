@@ -14,22 +14,23 @@
 	}
 </script>
 
-<div use:portal>
-	<section use:registerContainer>
-		{#if $toasts.length}
-			<ul>
-				{#each $toasts as toastProps}
-					<li>
-						<Toast {...toastProps} />
-					</li>
-				{/each}
-			</ul>
-		{/if}
-	</section>
-</div>
+<aside use:portal use:registerContainer>
+	{#if $toasts.length}
+		<ul>
+			{#each $toasts as toastProps (toastProps.id)}
+				<li>
+					<Toast {...toastProps} />
+				</li>
+			{/each}
+		</ul>
+	{/if}
+</aside>
 
 <style type="postcss">
-	section {
+	aside {
 		@apply absolute top-0 right-0;
+	}
+	li {
+		@apply m-2;
 	}
 </style>

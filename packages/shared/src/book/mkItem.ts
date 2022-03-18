@@ -12,9 +12,9 @@ export type LibraryItem<T = Props> = [Component<T>, Required<Variant<T>>[]];
 
 export default function mkItem<T>(
 	Klass: Component<T>,
-	varDef: Record<string, Omit<Variant<T & Props>, 'name'>> = {}
+	varDef: Record<string, Omit<Variant<Partial<T> & Props>, 'name'>> = {}
 ): LibraryItem<T> {
-	let defaultVariant: Variant<T> = {};
+	let defaultVariant: Variant<Partial<T>> = {};
 	const variants: Required<Variant<T>>[] = [];
 
 	const entries = Object.entries(varDef);

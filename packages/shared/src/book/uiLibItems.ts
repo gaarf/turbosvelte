@@ -3,18 +3,17 @@ import mkItem from './mkItem';
 
 import Button from '$components/Button';
 import { uiLibItem as iconsItem } from '$components/Icon';
+import ToastDemo from '$components/Toast/ToastDemo.svelte';
 import Input from '$components/Input';
-import Toast from '$components/Toast';
 import Alert from '$components/Alert';
 
 const items: LibraryItem[] = [
 	mkItem(Alert, {
 		default: { slot: 'This is an alert!' },
+		transparent: { props: { transparent: true } },
 		assertive: { props: { assertive: true } }
 	}),
-	mkItem(Toast, {
-		default: { slot: 'A piece of toast' }
-	}),
+	mkItem(ToastDemo),
 	mkItem(Input, {
 		default: { props: { value: 'hello' } },
 		wide: { props: { wide: true } },
