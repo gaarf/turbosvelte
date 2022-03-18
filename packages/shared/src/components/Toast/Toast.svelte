@@ -4,6 +4,7 @@
 	import uniqueId from '$utils/uniqueId';
 	import { onDestroy, onMount } from 'svelte';
 	import { dismissToast } from './store';
+	import { fly } from 'svelte/transition';
 
 	interface $$Props {
 		id?: string;
@@ -35,7 +36,7 @@
 </script>
 
 <Dismissable inside on:dismissed={handleDismiss}>
-	<div class="toast">
+	<div class="toast" out:fly={{ x: 200, duration: 200 }} in:fly={{ y: -50, duration: 100 }}>
 		<Alert {assertive} transparent>
 			{@html htmlContent}
 		</Alert>
@@ -44,9 +45,9 @@
 
 <style type="postcss">
 	.toast {
-		@apply bg-white shadow-md;
+		@apply bg-white text-black shadow-md;
 		@apply max-w-[200px] overflow-hidden rounded-lg border;
-		@apply dark\:border-transparent dark\:bg-slate-500;
+		@apply dark\:bg-black dark\:text-white dark\:border-gray-500;
 		@apply cursor-pointer select-none;
 	}
 </style>

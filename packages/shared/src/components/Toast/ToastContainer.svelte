@@ -28,7 +28,7 @@
 
 <style type="postcss">
 	aside {
-		@apply absolute top-0 right-0;
+		@apply absolute top-0 right-0 overflow-hidden;
 	}
 	li {
 		@apply m-2;
