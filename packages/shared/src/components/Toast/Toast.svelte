@@ -1,22 +1,26 @@
 <script lang="ts">
 	import Alert from '$components/Alert';
 	import Dismissable from '$components/Dismissable';
+	import uniqueId from '$utils/uniqueId';
+	import { dismissToast } from './store';
 
 	interface $$Props {
+		id?: string;
 		content?: string;
+		assertive?: boolean;
 	}
+
+	export let id = uniqueId();
+	export let content: unknown = undefined;
+	export let assertive = false;
 
 	function handleDismissed() {
-		console.log('FIXME');
+		dismissToast(id);
 	}
-
-	export const content = undefined;
 </script>
 
-<Alert>
-	<div class="border p-1">
-		<Dismissable on:dismissed={handleDismissed} self noButton outside>
-			<slot>{content}</slot>
-		</Dismissable>
-	</div>
-</Alert>
+<Dismissable on:dismissed={handleDismissed}>
+	<Alert {assertive}>
+		<slot>{content}</slot>
+	</Alert>
+</Dismissable>

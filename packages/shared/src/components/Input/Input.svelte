@@ -3,17 +3,19 @@
  -->
 <script lang="ts">
 	interface $$Props {
+		wide?: boolean;
 		value?: string | number;
 		disabled?: boolean;
 	}
 
 	export let value: string | number = '';
 	export let disabled = false;
+	export let wide = false;
 
 	$: addProps = { ...$$restProps, type: $$restProps.type || 'text' };
 </script>
 
-<input {disabled} on:focus on:input on:change bind:value {...addProps} />
+<input {disabled} class:wide on:focus on:input on:change bind:value {...addProps} />
 
 <style lang="postcss">
 	input {
@@ -21,5 +23,9 @@
 	}
 	input[disabled] {
 		@apply dark\:border-gray-800 border-gray-400 text-gray-400;
+	}
+
+	input.wide {
+		@apply w-full;
 	}
 </style>

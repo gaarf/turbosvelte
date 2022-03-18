@@ -4,4 +4,16 @@ import type { ComponentProps } from '$utils/types';
 
 type ToastProps = ComponentProps<Toast>;
 
-export default writable<ToastProps[]>([]);
+const store = writable<ToastProps[]>([]);
+
+export function makeToast(props: ToastProps) {
+	console.log('makeToast', props);
+	store.update((toasts) => [...toasts, props]);
+}
+
+export function dismissToast(id: ToastProps['id']) {
+	console.log('dismissToast', id);
+	store.update((toasts) => toasts.filter((toast) => toast.id !== id));
+}
+
+export default store;

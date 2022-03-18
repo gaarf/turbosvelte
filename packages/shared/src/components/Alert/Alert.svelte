@@ -9,6 +9,16 @@
 	export let assertive = false;
 </script>
 
-<div role={assertive ? 'alert' : 'status'}>
+<div role={assertive ? 'alert' : 'status'} class:assertive>
 	<slot />
 </div>
+
+<style type="postcss">
+	div {
+		@apply rounded-md border p-2;
+	}
+
+	.assertive {
+		@apply font-bold;
+	}
+</style>

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { ToastContainer } from '$components/Toast';
+	import DarkToggle from '$components/DarkToggle';
 	import BookIndex from './book/Index.svelte';
 	import type { Variant, Component } from './book/mkItem';
 
@@ -8,6 +10,7 @@
 
 <main>
 	<nav>
+		<DarkToggle />
 		<BookIndex bind:Klass bind:variant />
 	</nav>
 	<section>
@@ -25,12 +28,15 @@
 	</section>
 </main>
 
+<ToastContainer />
+
 <style lang="postcss">
 	main {
 		@apply absolute top-0 bottom-0 flex w-full overflow-hidden;
 	}
 	nav {
 		@apply max-w-xs overflow-x-auto px-4 py-2;
+		@apply flex flex-col gap-4;
 		@apply dark\:border-r-yellow-800 border-r;
 	}
 

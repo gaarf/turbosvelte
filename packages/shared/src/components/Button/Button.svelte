@@ -4,16 +4,18 @@
 <script lang="ts">
 	interface $$Props {
 		small?: boolean;
+		wide?: boolean;
 		disabled?: boolean;
 		type?: 'button' | 'submit' | 'reset';
 	}
 
 	export let small = false;
+	export let wide = false;
 	export let disabled = false;
 	export let type = 'button';
 </script>
 
-<button class:small on:click {disabled} {type}>
+<button class:small class:wide on:click {disabled} {type}>
 	<slot>Click Me</slot>
 </button>
 
@@ -32,6 +34,10 @@
 
 	button.small {
 		@apply p-1 text-xs;
+	}
+
+	button.wide {
+		@apply w-full;
 	}
 
 	button:disabled {

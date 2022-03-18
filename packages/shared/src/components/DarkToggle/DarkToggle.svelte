@@ -12,4 +12,4 @@
 	}
 </script>
 
-<Button on:click={handleClick}>theme={theme}</Button>
+<Button small wide on:click={handleClick}>theme={theme}</Button>
