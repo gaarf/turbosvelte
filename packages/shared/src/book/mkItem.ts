@@ -8,18 +8,14 @@ export type Variant<T = Props> = {
 	props?: T;
 };
 
-type LoggableEvent = string;
-
 export type LibraryItem<T = Props> = [
 	Component<T>, // the component class
-	Required<Variant<T>>[], // variants
-	LoggableEvent[] // what to bind to
+	Required<Variant<T>>[] // variants
 ];
 
 export default function mkItem<T>(
 	Klass: Component<T>,
-	varDef: Record<string, Omit<Variant<Partial<T> & Props>, 'name'>> = {},
-	events: LoggableEvent[] = []
+	varDef: Record<string, Omit<Variant<Partial<T> & Props>, 'name'>> = {}
 ): LibraryItem<T> {
 	let defaultVariant: Variant<Partial<T>> = {};
 	const variants: Required<Variant<T>>[] = [];
@@ -47,5 +43,5 @@ export default function mkItem<T>(
 		});
 	});
 
-	return [Klass, variants, events];
+	return [Klass, variants];
 }

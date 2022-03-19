@@ -15,7 +15,7 @@
 	export let type = 'button';
 </script>
 
-<button class:small class:wide on:click {disabled} {type}>
+<button class:small class:wide on:click on:focus on:blur {disabled} {type}>
 	<slot>Click Me</slot>
 </button>
 
