@@ -3,7 +3,7 @@ import type Toast from './Toast.svelte';
 import type { ComponentProps } from '$utils/types';
 import uniqueId from '$utils/uniqueId';
 
-type ToastProps = ComponentProps<Toast>;
+export type ToastProps = ComponentProps<Toast>;
 
 const store = writable<ToastProps[]>([]);
 

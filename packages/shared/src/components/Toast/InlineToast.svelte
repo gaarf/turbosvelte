@@ -1,18 +1,21 @@
+<!-- 
+  @component declarative toast message
+ -->
 <script lang="ts">
 	import uniqueId from '$utils/uniqueId';
 	import { makeToast } from './store';
+	import type { ToastProps } from './store';
 
-	interface $$Props {
-		id?: string;
-		assertive?: boolean;
+	interface $$Props extends ToastProps {
+		content?: never;
 	}
 
-	export let assertive = false;
-
 	export let id = uniqueId();
+	export let assertive = false;
+	export let timeout: $$Props['timeout'] = undefined;
 
 	function bake(content: HTMLDivElement) {
-		makeToast({ id, assertive }, content);
+		makeToast({ id, assertive, timeout }, content);
 	}
 </script>
 

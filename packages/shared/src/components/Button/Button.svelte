@@ -21,15 +21,15 @@
 
 <style lang="postcss">
 	button {
-		@apply rounded-lg bg-slate-600 px-4 py-2 text-white;
+		@apply rounded-xl bg-slate-600 px-4 py-2 text-white;
+		@apply outline-2 outline-offset-1 outline-blue-400;
+		@apply ring-blue-600 focus:ring-2;
 	}
-
 	button:hover {
-		@apply outline outline-2 outline-blue-400;
+		@apply outline;
 	}
-
 	button:active {
-		@apply outline outline-1 outline-offset-1 outline-green-500;
+		@apply outline outline-1;
 	}
 
 	button.small {

@@ -15,5 +15,5 @@
 <div>
 	<Button on:click={handleClick}>click for more toast</Button>
 
-	<Toast id="onlyonce">here be an <em>Inline Toast</em></Toast>
+	<Toast id="onlyonce" timeout={5000}>here be a long-lived <em>Inline Toast</em></Toast>
 </div>

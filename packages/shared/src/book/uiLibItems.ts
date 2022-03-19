@@ -4,10 +4,17 @@ import mkItem from './mkItem';
 import Button from '$components/Button';
 import { uiLibItem as iconsItem } from '$components/Icon';
 import ToastDemo from '$components/Toast/ToastDemo.svelte';
-import Input from '$components/Input';
 import Alert from '$components/Alert';
+import Input from '$components/Input';
+import SelectDemo from '$components/Select/SelectDemo.svelte';
 
 const items: LibraryItem[] = [
+	mkItem(SelectDemo, {
+		default: {},
+		selected: { props: { value: 2 } },
+		disabled: { props: { disabled: true } },
+		wide: { props: { wide: true } }
+	}),
 	mkItem(Alert, {
 		default: { slot: 'This is an alert!' },
 		transparent: { props: { transparent: true } },
@@ -17,8 +24,9 @@ const items: LibraryItem[] = [
 	mkItem(Input, {
 		default: { props: { value: 'hello' } },
 		wide: { props: { wide: true } },
+		area: { props: { area: true } },
 		disabled: { props: { disabled: true, value: 'disabled' } },
-		number: { props: { type: 'number', value: 2, min: 0 } }
+		number: { props: { type: 'number', value: '2', min: 0 } }
 	}),
 	mkItem(Button, {
 		default: {

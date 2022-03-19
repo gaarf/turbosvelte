@@ -16,7 +16,7 @@
 	export let id = uniqueId();
 	export let content: unknown = undefined;
 	export let assertive = false;
-	export let timeout = 2000;
+	export let timeout = 3000;
 
 	function handleDismiss() {
 		dismissToast(id);
