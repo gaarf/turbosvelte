@@ -2,7 +2,6 @@
 	import Select from '$components/Select';
 
 	let value: unknown;
-	$: console.log(typeof value, value);
 </script>
 
 <Select {...$$restProps} bind:value>

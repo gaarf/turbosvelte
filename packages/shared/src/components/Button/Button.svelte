@@ -22,12 +22,15 @@
 <style lang="postcss">
 	button {
 		@apply rounded-xl bg-slate-600 px-4 py-2 text-white;
-		@apply outline-2 outline-offset-1 outline-blue-400;
-		@apply ring-blue-600 hover:outline focus-visible:ring-2;
+	}
+
+	button:hover:not(:focus-visible) {
+		@apply outline outline-2 outline-offset-1;
+		@apply dark\:outline-blue-900 outline-blue-300;
 	}
 
 	button:active {
-		@apply outline outline-1;
+		@apply scale-95;
 	}
 
 	button.small {

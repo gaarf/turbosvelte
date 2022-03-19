@@ -25,7 +25,7 @@
 <ul>
 	{#each items as [K, o]}
 		<li>
-			<h2>{K.name}</h2>
+			<h2>{K.name.replace(/Demo$/, '')}</h2>
 			<ol>
 				{#each o as v}
 					<li>

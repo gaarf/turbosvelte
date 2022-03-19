@@ -2,6 +2,7 @@
 	import { ToastContainer } from '$components/Toast';
 	import DarkToggle from '$components/DarkToggle';
 	import BookIndex from './book/Index.svelte';
+	import Render from './book/Render.svelte';
 	import type { Variant, Component } from './book/mkItem';
 
 	let Klass: Component;
@@ -15,15 +16,9 @@
 	</nav>
 	<section>
 		{#if Klass}
-			{#if variant.slot}
-				<svelte:component this={Klass} {...variant.props}>
-					{variant.slot}
-				</svelte:component>
-			{:else}
-				<svelte:component this={Klass} {...variant.props} />
-			{/if}
+			<Render {Klass} {variant} />
 		{:else}
-			<p class=" text-gray-500">Choose a component!</p>
+			<p class="choose">Choose a component!</p>
 		{/if}
 	</section>
 </main>
@@ -43,5 +38,9 @@
 	section {
 		@apply flex-1 overflow-auto p-2;
 		@apply flex h-full items-center justify-center;
+	}
+
+	.choose {
+		@apply text-gray-500;
 	}
 </style>

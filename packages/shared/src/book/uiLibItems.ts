@@ -1,14 +1,16 @@
 import type { LibraryItem } from './mkItem';
 import mkItem from './mkItem';
 
-import Button from '$components/Button';
 import { uiLibItem as iconsItem } from '$components/Icon';
 import ToastDemo from '$components/Toast/ToastDemo.svelte';
+import SelectDemo from '$components/Select/SelectDemo.svelte';
+import ModalDemo from '$components/Modal/ModalDemo.svelte';
+import Button from '$components/Button';
 import Alert from '$components/Alert';
 import Input from '$components/Input';
-import SelectDemo from '$components/Select/SelectDemo.svelte';
 
 const items: LibraryItem[] = [
+	mkItem(ModalDemo),
 	mkItem(SelectDemo, {
 		default: {},
 		selected: { props: { value: 2 } },
@@ -16,21 +18,22 @@ const items: LibraryItem[] = [
 		wide: { props: { wide: true } }
 	}),
 	mkItem(Alert, {
-		default: { slot: 'This is an alert!' },
+		default: { content: 'This is an alert!' },
 		transparent: { props: { transparent: true } },
 		assertive: { props: { assertive: true } }
 	}),
 	mkItem(ToastDemo),
 	mkItem(Input, {
-		default: { props: { value: 'hello' } },
-		wide: { props: { wide: true } },
-		area: { props: { area: true } },
+		default: {},
+		wide: { props: { wide: true, value: 'a wide input' } },
+		area: { props: { area: true, value: 'textarea content' } },
 		disabled: { props: { disabled: true, value: 'disabled' } },
-		number: { props: { type: 'number', value: '2', min: 0 } }
+		number: { props: { type: 'number', value: '2', min: 0 } },
+		date: { props: { type: 'date', value: '2022-02-02' } }
 	}),
 	mkItem(Button, {
 		default: {
-			slot: 'Here be a Button'
+			content: 'Here be a Button'
 		},
 		small: {
 			props: { small: true }
