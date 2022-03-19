@@ -51,10 +51,7 @@
 	ol {
 		@apply list-inside list-disc text-sm;
 	}
-	ol a {
-		@apply capitalize text-blue-600 underline;
-	}
 	ol a.selected {
-		@apply pointer-events-none text-amber-600 no-underline;
+		@apply pointer-events-none text-amber-600;
 	}
 </style>

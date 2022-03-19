@@ -1,21 +1,17 @@
 <!-- 
-  @component a thing with a close button
+  @component a thing that can be dismissed
  -->
 <script lang="ts">
-	import Button from '$components/Button';
-	import Icon from '$components/Icon';
 	import clickOutside from '$utils/clickOutside';
 	import { createEventDispatcher } from 'svelte';
 
 	interface $$Props {
 		outside?: boolean;
-		noButton?: boolean;
-		self?: boolean;
+		inside?: boolean;
 	}
 
 	export let outside = false;
-	export let noButton = false;
-	export let self = false;
+	export let inside = false;
 
 	interface $$Events {
 		dismissed: CustomEvent;
@@ -23,12 +19,13 @@
 
 	const dispatch = createEventDispatcher();
 
-	let visible = true;
-
 	function handleDismiss() {
 		dispatch('dismissed');
-		if (self) {
-			visible = false;
+	}
+
+	function handleClickInside() {
+		if (inside) {
+			handleDismiss();
 		}
 	}
 
@@ -39,13 +36,6 @@
 	}
 </script>
 
-{#if visible}
-	<div class="flex" use:clickOutside={handleClickOutside}>
-		<slot />
-		{#if !noButton}
-			<div class="ml-2">
-				<Button small on:click={handleDismiss}><Icon name="close" /></Button>
-			</div>
-		{/if}
-	</div>
-{/if}
+<div use:clickOutside={handleClickOutside} on:click={handleClickInside}>
+	<slot />
+</div>

@@ -1,3 +1,6 @@
-import Toast from './Toast.svelte';
+import InlineToast from './InlineToast.svelte';
 export { default as ToastContainer } from './ToastContainer.svelte';
-export default Toast;
+
+export * from './store';
+
+export default InlineToast;

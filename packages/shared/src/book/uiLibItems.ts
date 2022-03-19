@@ -1,25 +1,32 @@
 import type { LibraryItem } from './mkItem';
 import mkItem from './mkItem';
 
-import DarkToggle from '$components/DarkToggle';
 import Button from '$components/Button';
 import { uiLibItem as iconsItem } from '$components/Icon';
-import Input from '$components/Input';
-import Toast from '$components/Toast';
+import ToastDemo from '$components/Toast/ToastDemo.svelte';
 import Alert from '$components/Alert';
+import Input from '$components/Input';
+import SelectDemo from '$components/Select/SelectDemo.svelte';
 
 const items: LibraryItem[] = [
-	mkItem(DarkToggle),
+	mkItem(SelectDemo, {
+		default: {},
+		selected: { props: { value: 2 } },
+		disabled: { props: { disabled: true } },
+		wide: { props: { wide: true } }
+	}),
 	mkItem(Alert, {
-		default: { slot: 'This is an alert!' }
+		default: { slot: 'This is an alert!' },
+		transparent: { props: { transparent: true } },
+		assertive: { props: { assertive: true } }
 	}),
-	mkItem(Toast, {
-		default: { slot: 'Dismissable toast' }
-	}),
+	mkItem(ToastDemo),
 	mkItem(Input, {
 		default: { props: { value: 'hello' } },
+		wide: { props: { wide: true } },
+		area: { props: { area: true } },
 		disabled: { props: { disabled: true, value: 'disabled' } },
-		number: { props: { type: 'number', value: 2, min: 0 } }
+		number: { props: { type: 'number', value: '2', min: 0 } }
 	}),
 	mkItem(Button, {
 		default: {
@@ -27,6 +34,9 @@ const items: LibraryItem[] = [
 		},
 		small: {
 			props: { small: true }
+		},
+		wide: {
+			props: { wide: true }
 		},
 		disabled: {
 			props: { disabled: true }
