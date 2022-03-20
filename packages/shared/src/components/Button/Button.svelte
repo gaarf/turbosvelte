@@ -1,5 +1,6 @@
 <!-- 
   @component a clickable button
+	with optional icon
  -->
 <script lang="ts">
 	import Icon from '$components/Icon';
