@@ -1,4 +1,4 @@
-import mkItem from 'src/book/mkItem';
+import mkItem from '../../book/mkItem';
 import Icon from './Icon.svelte';
 import iconDefs from './icons';
 

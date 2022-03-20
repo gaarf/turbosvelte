@@ -23,6 +23,17 @@
 	}
 
 	body {
-		@apply bg-slate-50 text-black dark:bg-gray-900 dark:text-white;
+		@apply bg-slate-50 text-black;
+	}
+
+	html.dark body {
+		@apply bg-gray-900 text-white;
+	}
+	html.dark * {
+		@apply border-gray-500;
+	}
+
+	summary {
+		@apply cursor-pointer;
 	}
 }

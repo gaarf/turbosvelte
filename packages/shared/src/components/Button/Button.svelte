@@ -24,7 +24,7 @@
 
 <button class:small class:wide class:icon_alone on:click on:focus on:blur {disabled} {type}>
 	{#if icon}
-		<Icon name={icon} size={small ? 'xs' : icon_alone ? '1x' : 'sm'} />
+		<Icon name={icon} size={icon_alone ? 'lg' : 'sm'} />
 	{/if}
 	<slot />
 </button>
@@ -50,11 +50,11 @@
 	}
 
 	button.icon_alone {
-		@apply h-5 w-5 bg-transparent p-0 text-blue-600;
+		@apply h-5 w-5 bg-transparent p-0 text-inherit;
 	}
 
 	button.icon_alone.small {
-		@apply h-2 w-2;
+		@apply h-4 w-4;
 	}
 
 	button.wide {

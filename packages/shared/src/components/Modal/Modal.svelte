@@ -5,12 +5,18 @@
 	import Dismissable from '$components/Dismissable';
 	import { fade, fly } from 'svelte/transition';
 	import portal from '$utils/portal';
+	import focusTrap from '$utils/focusTrap';
+	import Button from '$components/Button';
 
 	interface $$Props {
 		open: boolean;
 	}
 
 	export let open: boolean;
+
+	function close() {
+		open = false;
+	}
 </script>
 
 <dialog use:portal class="modal" {open}>
@@ -18,11 +24,12 @@
 		<div class="backdrop" transition:fade={{ duration: 200 }} />
 
 		<div class="outer" transition:fly={{ y: -200, duration: 300 }}>
-			<Dismissable outside escape on:dismissed={() => (open = false)}>
-				<div class="inner">
+			<Dismissable outside escape on:dismissed={close}>
+				<div class="inner" use:focusTrap>
 					{#if $$slots.header}
 						<header>
 							<slot name="header" />
+							<Button icon="close" small on:click={close} />
 						</header>
 					{/if}
 					<div class="body">
@@ -45,7 +52,7 @@
 	}
 
 	.backdrop {
-		@apply dark\:bg-black absolute inset-0 bg-white opacity-75;
+		@apply absolute inset-0 bg-black opacity-75;
 	}
 
 	.outer {
@@ -57,17 +64,18 @@
 		@apply relative max-h-[90vh] max-w-lg;
 		@apply flex flex-col shadow-lg;
 		@apply rounded-lg border bg-white text-black;
+		@apply dark\:bg-black dark\:text-white;
 	}
 
 	.inner > div.body {
 		@apply overflow-y-auto p-3;
 	}
 	.inner > header {
-		@apply border-b p-3;
-		@apply flex justify-start gap-3;
+		@apply dark\:border-gray-600 border-b p-3;
+		@apply flex items-center justify-between gap-3;
 	}
 	.inner > footer {
-		@apply border-t p-3;
-		@apply flex justify-end gap-3;
+		@apply dark\:border-gray-600 border-t p-3;
+		@apply flex items-center justify-end gap-3;
 	}
 </style>

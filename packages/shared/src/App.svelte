@@ -31,8 +31,7 @@
 	}
 	nav {
 		@apply max-w-xs overflow-x-auto px-4 py-2;
-		@apply flex flex-col gap-4;
-		@apply dark\:border-r-yellow-800 border-r;
+		@apply flex flex-col gap-4 border-r;
 	}
 
 	section {

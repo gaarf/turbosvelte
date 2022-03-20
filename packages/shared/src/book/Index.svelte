@@ -25,31 +25,30 @@
 <ul>
 	{#each items as [K, o]}
 		<li>
-			<h2>{K.name}</h2>
-			<ol>
-				{#each o as v}
-					<li>
-						<a
-							href={`#${K.name}/${v.name}`}
-							class:selected={Klass?.name === K.name && v.name === variant?.name}
-							on:click={() => handleSelect(K.name, v.name)}>{v.name}</a
-						>
-					</li>
-				{/each}
-			</ol>
+			<details open={K.name === Klass?.name}>
+				<summary>{K.name}</summary>
+				<ol>
+					{#each o as v}
+						<li>
+							<a
+								href={`#${K.name}/${v.name}`}
+								class:selected={Klass?.name === K.name && v.name === variant?.name}
+								on:click={() => handleSelect(K.name, v.name)}>{v.name}</a
+							>
+						</li>
+					{/each}
+				</ol>
+			</details>
 		</li>
 	{/each}
 </ul>
 
 <style lang="postcss">
-	h2 {
-		@apply font-bold;
-	}
 	ul > li {
 		@apply mb-4;
 	}
 	ol {
-		@apply list-inside list-disc text-sm;
+		@apply text-sm;
 	}
 	ol a.selected {
 		@apply pointer-events-none text-amber-600;

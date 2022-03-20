@@ -6,8 +6,8 @@
 
 	let open = true;
 
-	function handleClick() {
-		open = true;
+	function dismiss() {
+		open = false;
 	}
 </script>
 
@@ -16,10 +16,10 @@
 </Tooltip>
 
 <Modal bind:open>
-	<svelte:fragment slot="header">modal header</svelte:fragment>
+	<h2 slot="header" class="text-lg">modal header</h2>
 
 	{#each Array(5) as _}
-		<p class="m-2">
+		<p class="my-2">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos maxime quis placeat
 			praesentium vel repellat ipsum. Unde incidunt repellendus illum! Ipsum autem quo voluptatum
 			enim quia modi dicta veritatis culpa?
@@ -31,7 +31,7 @@
 	{/each}
 
 	<svelte:fragment slot="footer">
-		<Button on:click={() => (open = false)} disabled>Close</Button>
-		<Button on:click={() => (open = false)}>Close</Button>
+		<a href="/" on:click|preventDefault={dismiss}>Link</a>
+		<Button on:click={dismiss}>Close</Button>
 	</svelte:fragment>
 </Modal>
