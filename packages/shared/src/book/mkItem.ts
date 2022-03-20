@@ -4,11 +4,14 @@ export { Props, Component };
 
 export type Variant<T = Props> = {
 	name?: string;
-	slot?: unknown;
+	content?: unknown;
 	props?: T;
 };
 
-export type LibraryItem<T = Props> = [Component<T>, Required<Variant<T>>[]];
+export type LibraryItem<T = Props> = [
+	Component<T>, // the component class
+	Required<Variant<T>>[] // variants
+];
 
 export default function mkItem<T>(
 	Klass: Component<T>,
@@ -31,12 +34,12 @@ export default function mkItem<T>(
 			}
 		}
 
-		const { props, slot = '' } = variant;
+		const { props, content } = variant;
 
 		variants.push({
-			name,
+			name: name,
 			props: { ...defaultVariant.props, ...props } as T,
-			slot: slot || defaultVariant.slot
+			content: typeof content !== 'undefined' ? content : defaultVariant.content
 		});
 	});
 
