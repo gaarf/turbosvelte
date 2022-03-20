@@ -1,7 +1,7 @@
-import { faFlag, faUser, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faFlag, faUser, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const iconDefs = {
-	close: faCircleXmark,
+	close: faTimes,
 	flag: faFlag,
 	user: faUser
 };
