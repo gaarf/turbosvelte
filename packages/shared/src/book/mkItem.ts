@@ -34,12 +34,12 @@ export default function mkItem<T>(
 			}
 		}
 
-		const { props, content = '' } = variant;
+		const { props, content } = variant;
 
 		variants.push({
 			name: name,
 			props: { ...defaultVariant.props, ...props } as T,
-			content: content || defaultVariant.content
+			content: typeof content !== 'undefined' ? content : defaultVariant.content
 		});
 	});
 

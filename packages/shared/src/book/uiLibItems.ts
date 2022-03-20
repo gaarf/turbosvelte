@@ -43,6 +43,17 @@ const items: LibraryItem[] = [
 		},
 		disabled: {
 			props: { disabled: true }
+		},
+		icon: {
+			props: { icon: 'user' }
+		},
+		iconAlone: {
+			props: { icon: 'close' },
+			content: null
+		},
+		smallIconAlone: {
+			props: { icon: 'flag', small: true },
+			content: null
 		}
 	}),
 	iconsItem
