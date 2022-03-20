@@ -24,15 +24,16 @@
 
 <button class:small class:wide class:icon_alone on:click on:focus on:blur {disabled} {type}>
 	{#if icon}
-		<Icon name={icon} size={small ? 'sm' : '1x'} />
+		<Icon name={icon} size={small ? 'xs' : icon_alone ? '1x' : 'sm'} />
 	{/if}
 	<slot />
 </button>
 
 <style lang="postcss">
 	button {
+		@apply select-none;
 		@apply rounded-xl bg-slate-600 px-4 py-2 text-white;
-		@apply flex items-center gap-2;
+		@apply flex items-center justify-center gap-2;
 	}
 
 	button:hover:not(:focus-visible) {
@@ -49,7 +50,11 @@
 	}
 
 	button.icon_alone {
-		@apply bg-transparent p-0 text-blue-600;
+		@apply h-5 w-5 bg-transparent p-0 text-blue-600;
+	}
+
+	button.icon_alone.small {
+		@apply h-2 w-2;
 	}
 
 	button.wide {

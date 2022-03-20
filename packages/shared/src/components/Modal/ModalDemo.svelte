@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Modal from '$components/Modal';
 	import Button from '$components/Button';
+	import Input from '$components/Input/Input.svelte';
 
 	let open = true;
 
@@ -9,7 +10,9 @@
 	}
 </script>
 
-<Button on:click={handleClick}>open modal</Button>
+<span aria-label="Hey tooltip!" data-microtip-position="top" role="tooltip">
+	<Button on:click={() => (open = true)}>open modal</Button>
+</span>
 
 <Modal bind:open>
 	<svelte:fragment slot="header">modal header</svelte:fragment>
@@ -20,7 +23,12 @@
 			praesentium vel repellat ipsum. Unde incidunt repellendus illum! Ipsum autem quo voluptatum
 			enim quia modi dicta veritatis culpa?
 		</p>
+
+		<Input />
 	{/each}
 
-	<svelte:fragment slot="footer">modal footer</svelte:fragment>
+	<svelte:fragment slot="footer">
+		<Button on:click={() => (open = false)} disabled>Close</Button>
+		<Button on:click={() => (open = false)}>Close</Button>
+	</svelte:fragment>
 </Modal>

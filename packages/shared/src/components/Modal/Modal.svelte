@@ -17,58 +17,57 @@
 	{#if open}
 		<div class="backdrop" transition:fade={{ duration: 200 }} />
 
-		<Dismissable outside escape on:dismissed={() => (open = false)}>
-			<div
-				class="container"
-				in:fly={{ y: -200, duration: 500 }}
-				out:fly={{ y: -200, duration: 150 }}
-			>
-				{#if $$slots.header}
-					<header>
-						<slot name="header" />
-					</header>
-				{/if}
-				<div class="body">
-					<slot />
+		<div class="outer" transition:fly={{ y: -200, duration: 300 }}>
+			<Dismissable outside escape on:dismissed={() => (open = false)}>
+				<div class="inner">
+					{#if $$slots.header}
+						<header>
+							<slot name="header" />
+						</header>
+					{/if}
+					<div class="body">
+						<slot />
+					</div>
+					{#if $$slots.footer}
+						<footer>
+							<slot name="footer" />
+						</footer>
+					{/if}
 				</div>
-				{#if $$slots.footer}
-					<footer>
-						<slot name="footer" />
-					</footer>
-				{/if}
-			</div>
-		</Dismissable>
+			</Dismissable>
+		</div>
 	{/if}
 </dialog>
 
 <style lang="postcss">
 	dialog {
-		@apply h-auto w-auto bg-transparent p-10;
-		@apply flex flex-col items-center justify-center;
-		@apply absolute bottom-0;
-	}
-
-	dialog[open] {
-		@apply top-0;
+		@apply static block h-auto w-auto bg-transparent p-0;
 	}
 
 	.backdrop {
 		@apply dark\:bg-black absolute inset-0 bg-white opacity-75;
 	}
 
-	.container {
+	.outer {
+		@apply absolute inset-0 p-10;
+		@apply flex flex-col items-center justify-center;
+	}
+
+	.inner {
 		@apply relative max-h-[90vh] max-w-lg;
 		@apply flex flex-col shadow-lg;
 		@apply rounded-lg border bg-white text-black;
 	}
 
-	.container > div.body {
+	.inner > div.body {
 		@apply overflow-y-auto p-3;
 	}
-	.container > header {
+	.inner > header {
 		@apply border-b p-3;
+		@apply flex justify-start gap-3;
 	}
-	.container > footer {
+	.inner > footer {
 		@apply border-t p-3;
+		@apply flex justify-end gap-3;
 	}
 </style>

@@ -48,11 +48,11 @@ const items: LibraryItem[] = [
 			props: { icon: 'user' }
 		},
 		iconAlone: {
-			props: { icon: 'close' },
+			props: { icon: 'user' },
 			content: null
 		},
 		smallIconAlone: {
-			props: { icon: 'flag', small: true },
+			props: { icon: 'user', small: true },
 			content: null
 		}
 	}),
