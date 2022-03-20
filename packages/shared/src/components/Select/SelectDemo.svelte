@@ -2,10 +2,9 @@
 	import Select from '$components/Select';
 
 	let value: unknown;
-	$: console.log(typeof value, value);
 </script>
 
-<Select {...$$restProps} bind:value>
+<Select {...$$restProps} bind:value on:blur on:change on:focus>
 	<option value="">Foo</option>
 	<option value="bar">Bar is another</option>
 	<option value={2}>Baz</option>

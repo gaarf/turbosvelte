@@ -48,6 +48,5 @@
 		@apply bg-white text-black shadow-md;
 		@apply max-w-[200px] overflow-hidden rounded-lg border;
 		@apply dark\:bg-black dark\:text-white dark\:border-gray-500;
-		@apply cursor-pointer select-none;
 	}
 </style>

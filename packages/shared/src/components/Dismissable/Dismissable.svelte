@@ -7,10 +7,12 @@
 
 	interface $$Props {
 		outside?: boolean;
+		escape?: boolean;
 		inside?: boolean;
 	}
 
 	export let outside = false;
+	export let escape = false;
 	export let inside = false;
 
 	interface $$Events {
@@ -34,8 +36,26 @@
 			handleDismiss();
 		}
 	}
+
+	function handleKeyDown(e: KeyboardEvent) {
+		if (escape && e.key === 'Escape') {
+			handleDismiss();
+		}
+	}
 </script>
 
-<div use:clickOutside={handleClickOutside} on:click={handleClickInside}>
+<div
+	class="dismissable"
+	class:inside
+	use:clickOutside={handleClickOutside}
+	on:click={handleClickInside}
+>
 	<slot />
 </div>
+<svelte:window on:keydown={handleKeyDown} />
+
+<style lang="postcss">
+	.dismissable.inside {
+		@apply cursor-pointer select-none;
+	}
+</style>

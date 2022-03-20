@@ -29,13 +29,15 @@
 		@apply dark\:bg-slate-600 dark\:text-gray-100 text-black;
 		@apply rounded-sm;
 	}
-	input:not(:focus),
-	textarea:not(:focus) {
-		@apply outline-2 outline-offset-1 outline-blue-400 hover:outline;
+	input:hover:not(:focus-visible),
+	textarea:hover:not(:focus-visible) {
+		@apply outline outline-2 outline-offset-1;
+		@apply dark\:outline-blue-900 outline-blue-300;
 	}
 	input[disabled],
 	textarea[disabled] {
-		@apply dark\:border-gray-800 pointer-events-none border-gray-400 text-gray-400;
+		@apply dark\:border-gray-800 border-gray-400 text-gray-400;
+		@apply pointer-events-none;
 	}
 
 	.wide {
