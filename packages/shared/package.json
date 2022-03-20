@@ -16,7 +16,7 @@
 		"defaults"
 	],
 	"devDependencies": {
-		"@fortawesome/free-solid-svg-icons": "^6.1.0",
+		"@fortawesome/free-solid-svg-icons": "^5.15.4",
 		"@rollup/plugin-alias": "^3.1.9",
 		"@rollup/plugin-commonjs": "^21.0.2",
 		"@rollup/plugin-node-resolve": "^13.1.3",

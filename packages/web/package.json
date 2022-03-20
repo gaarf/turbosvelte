@@ -14,19 +14,23 @@
 	},
 	"devDependencies": {
 		"@repo/shared": "*",
-		"@urql/svelte": "^1.3.3",
-		"graphql": "^16.3.0",
-		"graphql-tag": "^2.12.6",
-		"tailwindcss": "*",
-		"autoprefixer": "*",
-		"postcss": "*",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+		"@urql/svelte": "^1.3.3",
+		"autoprefixer": "*",
+		"graphql": "^16.3.0",
+		"graphql-tag": "^2.12.6",
+		"postcss": "*",
 		"svelte": "*",
 		"svelte-check": "*",
 		"svelte-preprocess": "*",
+		"tailwindcss": "*",
 		"tslib": "*",
 		"typescript": "*"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"lint-staged": ">=10",
+		"prettier": "^2.5.1"
+	}
 }
