@@ -25,7 +25,7 @@
 
 <button class:small class:wide class:icon_alone on:click on:focus on:blur {disabled} {type}>
 	{#if icon}
-		<Icon name={icon} size={icon_alone ? 'lg' : 'sm'} />
+		<Icon name={icon} size={icon_alone ? '1x' : 'lg'} />
 	{/if}
 	<slot />
 </button>
@@ -33,7 +33,7 @@
 <style lang="postcss">
 	button {
 		@apply select-none;
-		@apply rounded-xl bg-slate-600 px-4 py-2 text-white;
+		@apply rounded-lg bg-slate-600 px-4 py-2 text-white;
 		@apply flex items-center justify-center gap-2;
 	}
 
@@ -51,7 +51,8 @@
 	}
 
 	button.icon_alone {
-		@apply h-5 w-5 bg-transparent p-0 text-inherit;
+		@apply h-5 w-5 rounded-full;
+		@apply bg-transparent p-0 text-inherit;
 	}
 
 	button.icon_alone.small {
