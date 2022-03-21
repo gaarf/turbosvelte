@@ -1,6 +1,21 @@
-const parseNumber = parseFloat;
+export type IconSize =
+	| 'xs'
+	| 'sm'
+	| 'lg'
+	| '1x'
+	| '2x'
+	| '3x'
+	| '4x'
+	| '5x'
+	| '6x'
+	| '7x'
+	| '8x'
+	| '9x'
+	| '10x';
 
-export function joinCss(obj, separator = ';') {
+const parseNumber = (s: unknown) => parseFloat(String(s));
+
+export function joinCss(obj: unknown[] | Record<string, unknown>, separator = ';') {
 	let texts;
 	if (Array.isArray(obj)) {
 		texts = obj.filter((text) => text);
@@ -15,7 +30,7 @@ export function joinCss(obj, separator = ';') {
 	return texts.join(separator);
 }
 
-export function getStyles(style, size, pull, fw) {
+export function getStyles(style: unknown, size: string, pull: unknown, fw: unknown) {
 	let float;
 	let width;
 	const height = '1em';
@@ -65,11 +80,11 @@ export function getStyles(style, size, pull, fw) {
 }
 
 export function getTransform(
-	scale,
-	translateX,
-	translateY,
-	rotate,
-	flip,
+	scale: undefined | string | number,
+	translateX: undefined | string | number,
+	translateY: undefined | string | number,
+	rotate: undefined | string | number,
+	flip: undefined | string,
 	translateTimes = 1,
 	translateUnit = '',
 	rotateUnit = ''

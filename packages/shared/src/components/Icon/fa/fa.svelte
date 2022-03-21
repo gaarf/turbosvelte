@@ -1,24 +1,25 @@
-<script>
-	import { joinCss, getStyles, getTransform } from './utils';
+<script lang="ts">
+	import type { IconDefinition } from '@fortawesome/fontawesome-common-types';
+	import { joinCss, getStyles, getTransform, type IconSize } from './utils';
 
 	let clazz = '';
 	export { clazz as class };
 	export let id = '';
 	export let style = '';
 
-	export let icon;
+	export let icon: IconDefinition;
 
-	export let size = '';
+	export let size: IconSize | undefined = undefined;
 	export let color = '';
 
 	export let fw = false;
 	export let pull = '';
 
-	export let scale = 1;
-	export let translateX = 0;
-	export let translateY = 0;
-	export let rotate = '';
-	export let flip = false;
+	export let scale: number | string = 1;
+	export let translateX: number | string = 0;
+	export let translateY: number | string = 0;
+	export let rotate: number | string = '';
+	export let flip: 'horizontal' | 'vertical' | 'both' | undefined = undefined;
 
 	export let spin = false;
 	export let pulse = false;
@@ -26,14 +27,14 @@
 	// Duotone Icons
 	export let primaryColor = '';
 	export let secondaryColor = '';
-	export let primaryOpacity = 1;
-	export let secondaryOpacity = 0.4;
+	export let primaryOpacity: number | string = 1;
+	export let secondaryOpacity: number | string = 0.4;
 	export let swapOpacity = false;
 
-	let i;
-	let c;
-	let s;
-	let transform;
+	let i: [number, number, string, unknown[], string];
+	let c: string;
+	let s: string;
+	let transform: string;
 
 	$: i = (icon && icon.icon) || [0, 0, '', [], ''];
 

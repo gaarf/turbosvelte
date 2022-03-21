@@ -2,11 +2,12 @@
   @component an SVG icon
  -->
 <script lang="ts">
-	import Fa from './vendor/fa.svelte';
+	import Fa from './fa/fa.svelte';
 	import iconDefs, { type IconName } from './icons';
 	import type { ComponentProps } from '../../utils/types';
 
-	type IconSize = ComponentProps<Fa>['size'];
+	type FaProps = ComponentProps<Fa>;
+	type IconSize = FaProps['size'];
 
 	interface $$Props {
 		name: IconName;
