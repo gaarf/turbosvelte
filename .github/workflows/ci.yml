@@ -17,8 +17,4 @@ jobs:
         cache: 'yarn'
     - run: yarn
     - run: yarn run build
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
     - run: yarn run test
