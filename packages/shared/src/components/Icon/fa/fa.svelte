@@ -9,7 +9,7 @@
 
 	export let icon: IconDefinition;
 
-	export let size: IconSize | undefined = undefined;
+	export let size: IconSize = '1x';
 	export let color = '';
 
 	export let fw = false;
@@ -31,7 +31,7 @@
 	export let secondaryOpacity: number | string = 0.4;
 	export let swapOpacity = false;
 
-	let i: [number, number, string, unknown[], string];
+	let i: IconDefinition['icon'];
 	let c: string;
 	let s: string;
 	let transform: string;
