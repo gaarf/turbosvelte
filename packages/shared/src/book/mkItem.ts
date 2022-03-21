@@ -1,4 +1,4 @@
-import type { Props, Component } from '$utils/types';
+import type { Props, Component } from '../utils/types';
 
 export { Props, Component };
 

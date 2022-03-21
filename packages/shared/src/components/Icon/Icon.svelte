@@ -2,7 +2,7 @@
   @component an SVG icon
  -->
 <script lang="ts">
-	import Fa from 'svelte-fa';
+	import Fa from 'svelte-fa/src/fa.svelte';
 	import iconDefs, { type IconName } from './icons';
 	import type { ComponentProps } from '$utils/types';
 

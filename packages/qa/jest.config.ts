@@ -6,7 +6,7 @@ import type { Config } from '@jest/types';
  */
 
 const config: Config.InitialOptions = {
-	rootDir: '..',
+	rootDir: '../..',
 
 	testPathIgnorePatterns: ['e2e/'],
 
@@ -23,6 +23,13 @@ const config: Config.InitialOptions = {
 
 	// An array of file extensions your modules use
 	moduleFileExtensions: ['js', 'ts', 'svelte'],
+
+	moduleNameMapper: {
+		'^\\$utils/(.*)': '<rootDir>/packages/shared/src/utils/$1',
+		'^\\$components/(.*)': '<rootDir>/packages/shared/src/components/$1'
+	},
+
+	transformIgnorePatterns: ['<rootDir>/node_modules/(?!(svelte-fa))'],
 
 	// A map from regular expressions to paths to transformers
 	transform: {

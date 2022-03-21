@@ -5,9 +5,9 @@ import { render } from '@testing-library/svelte';
 import Button from './Button.svelte';
 
 describe('Button', () => {
-	it('has a slot fallback', () => {
-		const { getByText } = render(Button);
-		const el = getByText('Click Me');
+	it('can be an icon', () => {
+		const { getByLabelText } = render(Button, { icon: 'close' });
+		const el = getByLabelText('close');
 		expect(el).toBeInTheDocument();
 		expect(el).toBeEnabled();
 	});
@@ -15,5 +15,13 @@ describe('Button', () => {
 	it('can be disabled', () => {
 		const { getByRole } = render(Button, { disabled: true });
 		expect(getByRole('button')).toBeDisabled();
+	});
+
+	xit('can take a slot', () => {
+		// see https://github.com/sveltejs/svelte/pull/5687
+		const { getByText } = render(Button, { $$slots: { default: 'Hello World' } });
+		const el = getByText('Hello World');
+		expect(el).toBeInTheDocument();
+		expect(el).toBeEnabled();
 	});
 });
