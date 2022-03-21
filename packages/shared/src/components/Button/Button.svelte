@@ -60,7 +60,7 @@
 	}
 
 	button.wide {
-		@apply \!w-full;
+		@apply w-full !important;
 	}
 
 	button:disabled {
