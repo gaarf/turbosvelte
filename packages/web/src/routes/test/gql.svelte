@@ -2,7 +2,7 @@
 	import Button from '$components/Button';
 	import Input from '$components/Input';
 	import { operationStore, query } from '$lib/gql';
-	import { PokeTestDocument, PokemonEnum } from '@repo/graphql';
+	import { PokeTestDocument, type PokemonEnum } from '@repo/graphql';
 
 	let pokemonName: PokemonEnum = 'voltorb' as PokemonEnum;
 
@@ -28,6 +28,7 @@
 		<div>
 			<img src={$op.data?.getPokemon.sprite} alt={$op.data?.getPokemon.species} />
 		</div>
+		<h1>{$op.data?.getPokemon.eggGroups}</h1>
 		<code class="overflow-x-hidden">
 			<pre>{JSON.stringify($op.data?.getPokemon, null, 2)}</pre>
 		</code>

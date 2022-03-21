@@ -3,7 +3,7 @@
 	"pipeline": {
 		"build": {
 			"dependsOn": ["^build"],
-			"outputs": [".svelte-kit/output/**", "public/build/**"]
+			"outputs": [".svelte-kit/output/**", "public/build/**", "build/"]
 		},
 		"lint": {
 			"cache": false,
