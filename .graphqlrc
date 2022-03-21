@@ -1,0 +1,2 @@
+schema: https://graphqlpokemon.favware.tech/
+documents: ./packages/**/*.graphql

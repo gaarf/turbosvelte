@@ -1,0 +1,20 @@
+query PokeTest($pokemon: PokemonEnum!) {
+  getPokemon(pokemon: $pokemon) {
+    num
+    species
+    types
+    baseStats {
+      hp
+      attack
+      defense
+      specialattack
+      specialdefense
+      speed
+    }
+    flavorTexts {
+      game
+      flavor
+    }
+    sprite
+  }
+}

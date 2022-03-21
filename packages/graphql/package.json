@@ -1,0 +1,22 @@
+{
+	"name": "@repo/graphql",
+	"version": "0.0.0",
+	"license": "UNLICENSED",
+	"private": true,
+	"main": "build/index.ts",
+	"scripts": {
+		"dev": "yarn run build --watch",
+		"build": "graphql-codegen --config codegen.yml"
+	},
+	"dependencies": {
+		"graphql": "^16.3.0",
+		"graphql-tag": "^2.12.6"
+	},
+	"devDependencies": {
+		"@graphql-codegen/cli": "2.6.2",
+		"@graphql-codegen/typescript": "2.4.8",
+		"@graphql-codegen/typescript-operations": "2.3.5",
+		"@graphql-codegen/typed-document-node": "2.2.8",
+		"@graphql-typed-document-node/core": "3.1.1"
+	}
+}
