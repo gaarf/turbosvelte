@@ -29,8 +29,6 @@ const config: Config.InitialOptions = {
 		'^\\$components/(.*)': '<rootDir>/packages/shared/src/components/$1'
 	},
 
-	transformIgnorePatterns: ['<rootDir>/node_modules/(?!(svelte-fa))'],
-
 	// A map from regular expressions to paths to transformers
 	transform: {
 		'^.+\\.svelte$': [

@@ -38,7 +38,6 @@
 		"rollup-plugin-terser": "^7.0.0",
 		"svelte": "*",
 		"svelte-check": "*",
-		"svelte-fa": "^2.4.0",
 		"svelte-portal": "^2.1.2",
 		"svelte-preprocess": "*",
 		"tailwindcss": "^3.0.23",

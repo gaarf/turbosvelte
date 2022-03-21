@@ -5,6 +5,7 @@
 	"compilerOptions": {
 		"strict": true,
 		"baseUrl": ".",
+		"checkJs": false,
 		"paths": {
 			"$utils/*": ["src/utils/*"],
 			"$components/*": ["src/components/*"]
