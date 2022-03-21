@@ -25,7 +25,7 @@
 
 <button class:small class:wide class:icon_alone on:click on:focus on:blur {disabled} {type}>
 	{#if icon}
-		<Icon name={icon} size={icon_alone ? '1x' : 'lg'} />
+		<Icon name={icon} size={icon_alone ? '1x' : '2x'} />
 	{/if}
 	<slot />
 </button>
@@ -34,7 +34,7 @@
 	button {
 		@apply select-none;
 		@apply rounded-lg bg-slate-600 px-4 py-2 text-white;
-		@apply flex items-center justify-center gap-2;
+		@apply inline-flex items-center justify-center gap-3;
 	}
 
 	button:hover:not(:focus-visible) {
@@ -47,20 +47,20 @@
 	}
 
 	button.small {
-		@apply px-2 py-1 text-xs;
+		@apply gap-1 px-2 py-1 text-xs;
 	}
 
 	button.icon_alone {
-		@apply h-5 w-5 rounded-full;
-		@apply bg-transparent p-0 text-inherit;
+		@apply h-5 w-5 rounded-full p-0;
+		@apply bg-transparent text-inherit;
 	}
 
 	button.icon_alone.small {
-		@apply h-4 w-4;
+		@apply h-3 w-3;
 	}
 
 	button.wide {
-		@apply w-full;
+		@apply \!w-full;
 	}
 
 	button:disabled {

@@ -5,7 +5,7 @@ import { uiLibItem as iconsItem } from '$components/Icon';
 import ToastDemo from '$components/Toast/ToastDemo.svelte';
 import SelectDemo from '$components/Select/SelectDemo.svelte';
 import ModalDemo from '$components/Modal/ModalDemo.svelte';
-import Button from '$components/Button';
+import ButtonDemo from '$components/Button/ButtonDemo.svelte';
 import Alert from '$components/Alert';
 import Input from '$components/Input';
 
@@ -31,30 +31,10 @@ const items: LibraryItem[] = [
 		number: { props: { type: 'number', value: '2', min: 0 } },
 		date: { props: { type: 'date', value: '2022-02-02' } }
 	}),
-	mkItem(Button, {
-		default: {
-			content: 'Here be a Button'
-		},
-		small: {
-			props: { small: true }
-		},
-		wide: {
-			props: { wide: true }
-		},
-		disabled: {
-			props: { disabled: true }
-		},
-		icon: {
-			props: { icon: 'close' }
-		},
-		iconAlone: {
-			props: { icon: 'close' },
-			content: null
-		},
-		smallIconAlone: {
-			props: { icon: 'close', small: true },
-			content: null
-		}
+	mkItem(ButtonDemo, {
+		default: {},
+		wide: { props: { wide: true } },
+		disabled: { props: { disabled: true } }
 	}),
 	iconsItem
 ];

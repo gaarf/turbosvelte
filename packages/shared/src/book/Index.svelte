@@ -18,14 +18,16 @@
 		const p = window.location.hash.match(/^#(\w+)\/(\w+)$/);
 		if (p) {
 			handleSelect(p[1], p[2]);
+			const deets = document.querySelector<HTMLDetailsElement>(`details[name="${p[1]}"]`);
+			deets?.setAttribute('open', 'open');
 		}
 	});
 </script>
 
 <ul>
-	{#each items as [K, o]}
+	{#each items as [K, o] (K.name)}
 		<li>
-			<details open={K.name === Klass?.name}>
+			<details name={K.name}>
 				<summary>{K.name}</summary>
 				<ol>
 					{#each o as v}

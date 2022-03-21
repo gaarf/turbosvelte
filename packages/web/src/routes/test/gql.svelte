@@ -44,7 +44,7 @@
 <section class="flex flex-col p-2">
 	<form class="mb-2" on:submit|preventDefault={handleSubmit}>
 		<Input bind:value={pokemonName} disabled={$op.fetching} />
-		<Button type="submit" disabled={$op.fetching}>Submit</Button>
+		<Button icon="flag" type="submit" disabled={$op.fetching}>Submit</Button>
 	</form>
 	{#if $op.fetching}
 		<p>Loading...</p>
