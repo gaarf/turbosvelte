@@ -3,8 +3,10 @@ schema: https://graphqlpokemon.favware.tech/
 documents: ../*/src/**/*.graphql
 generates:
   build/index.ts:
+    hooks:
+      afterOneFileWrite:
+        - "sed -i '' -e '1s/import { TypedDocumentNode/import type { TypedDocumentNode/'"
     plugins:
       - typescript
       - typescript-operations
       - typed-document-node
-
