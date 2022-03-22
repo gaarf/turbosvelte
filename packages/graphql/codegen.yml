@@ -5,7 +5,7 @@ generates:
   build/index.ts:
     hooks:
       afterOneFileWrite:
-        - "sed -i '' -e '1s/import { TypedDocumentNode/import type { TypedDocumentNode/' $1"
+        - ./rewrite.sh
     plugins:
       - typescript
       - typescript-operations
