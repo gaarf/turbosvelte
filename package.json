@@ -16,6 +16,7 @@
 		"check": "turbo run check",
 		"lint": "turbo run lint",
 		"format": "prettier --ignore-path .gitignore --write .",
+		"postinstall": "yarn workspace @repo/graphql run build",
 		"prepare": "husky install"
 	},
 	"devDependencies": {

@@ -5,5 +5,4 @@ const options: ClientOptions = {
 	url: 'https://graphqlpokemon.favware.tech/'
 };
 
-export * as codegen from '@repo/graphql';
 export default options;
