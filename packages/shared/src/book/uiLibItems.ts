@@ -25,6 +25,7 @@ const items: LibraryItem[] = [
 	mkItem(ToastDemo),
 	mkItem(Input, {
 		default: {},
+		datalist: { props: { datalist: ['foo', 'bar', 'baz'] } },
 		wide: { props: { wide: true, value: 'a wide input' } },
 		area: { props: { area: true, value: 'textarea content' } },
 		disabled: { props: { disabled: true, value: 'disabled' } },
