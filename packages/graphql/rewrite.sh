@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-sed -i '' -e '1s/import { TypedDocumentNode/import type { TypedDocumentNode/' build/index.ts
+echo "Rewriting first line..."
+sed -i '' -e '1s/import { TypedDocumentNode/import type { TypedDocumentNode/' "./$1"
