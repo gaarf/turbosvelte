@@ -3,14 +3,14 @@
 	"pipeline": {
 		"build": {
 			"dependsOn": ["^build"],
-			"outputs": [".svelte-kit/output/**", "public/build/**"]
+			"outputs": [".svelte-kit/output/**", "public/build/**", "build/"]
 		},
 		"lint": {
 			"cache": false,
 			"outputs": []
 		},
 		"check": {
-			"dependsOn": ["^lint"],
+			"dependsOn": ["^lint", "^build"],
 			"outputs": []
 		},
 		"test": {
