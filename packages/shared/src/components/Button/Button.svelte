@@ -60,7 +60,7 @@
 	}
 
 	button[type].wide {
-		width: 100%;
+		@apply w-full;
 	}
 
 	button:disabled {
