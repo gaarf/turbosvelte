@@ -2,22 +2,24 @@
 	import Button from '$components/Button';
 	import Input from '$components/Input';
 	import { operationStore, query } from '$lib/gql';
-	import { PokeTestDocument, type PokemonEnum } from '@repo/graphql';
+	import { PokeTestDocument, PokemonEnum } from '@repo/graphql';
 
-	let pokemonName: PokemonEnum = 'voltorb' as PokemonEnum;
+	let pokemonName: string = PokemonEnum.Pikachu;
 
-	const op = operationStore(PokeTestDocument, { pokemon: pokemonName });
+	const op = operationStore(PokeTestDocument, { pokemon: pokemonName as PokemonEnum });
 
 	query(op);
 
 	function handleSubmit() {
-		$op.variables = { pokemon: pokemonName };
+		$op.variables = { pokemon: pokemonName as PokemonEnum };
 	}
+
+	const names = Object.values(PokemonEnum);
 </script>
 
 <section class="flex flex-col p-2">
 	<form class="mb-2" on:submit|preventDefault={handleSubmit}>
-		<Input bind:value={pokemonName} disabled={$op.fetching} />
+		<Input bind:value={pokemonName} disabled={$op.fetching} datalist={names} />
 		<Button type="submit" disabled={$op.fetching}>Submit</Button>
 	</form>
 	{#if $op.fetching}
@@ -28,7 +30,7 @@
 		<div>
 			<img src={$op.data?.getPokemon.sprite} alt={$op.data?.getPokemon.species} />
 		</div>
-		<h1>{$op.data?.getPokemon.eggGroups}</h1>
+		<h1>{$op.data?.getPokemon.species}</h1>
 		<code class="overflow-x-hidden">
 			<pre>{JSON.stringify($op.data?.getPokemon, null, 2)}</pre>
 		</code>

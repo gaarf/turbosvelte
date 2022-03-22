@@ -59,8 +59,8 @@
 		@apply h-3 w-3;
 	}
 
-	button.wide {
-		width: 100% !important;
+	button[type].wide {
+		@apply w-full;
 	}
 
 	button:disabled {

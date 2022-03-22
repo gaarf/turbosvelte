@@ -2,25 +2,39 @@
   @component an input field
  -->
 <script lang="ts">
+	import uniqueId from '$utils/uniqueId';
+
 	interface $$Props {
 		wide?: boolean;
 		value?: string;
 		disabled?: boolean;
 		area?: boolean;
+		datalist?: string[];
 	}
 
 	export let value = '';
 	export let disabled = false;
 	export let wide = false;
 	export let area = false;
+	export let datalist: string[] = [];
 
-	$: inputProps = { ...$$restProps, type: $$restProps.type || 'text' };
+	$: listId = datalist?.length ? uniqueId() : undefined;
+
+	$: inputProps = { ...$$restProps, type: $$restProps.type || 'text', list: listId };
 </script>
 
 {#if area}
 	<textarea {disabled} class:wide on:focus on:blur on:input on:change bind:value {...$$restProps} />
 {:else}
 	<input {disabled} class:wide on:focus on:blur on:input on:change bind:value {...inputProps} />
+{/if}
+
+{#if listId}
+	<datalist id={listId}>
+		{#each datalist as value}
+			<option {value} />
+		{/each}
+	</datalist>
 {/if}
 
 <style lang="postcss">

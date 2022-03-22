@@ -1,12 +1,11 @@
 overwrite: true
 schema: https://graphqlpokemon.favware.tech/
 documents: ../*/src/**/*.graphql
+config:
+  useTypeImports: true
 generates:
   build/index.ts:
     plugins:
       - typescript
       - typescript-operations
       - typed-document-node
-    hooks:
-      afterOneFileWrite:
-        - node rewrite.js
